@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epaperRequest>
+    <deviceInfo name="Browser" id="test@comp">
+        <screenInfo width="1840" height="731" dpi="400"/>
+        <osInfo name="Browser" version="2.0"/>
+        <appInfo>
+            <newspaperName>cdd</newspaperName>
+            <version>2.0</version>
+        </appInfo>
+    </deviceInfo>
+    <getPages editionDefId="22" publicationDate="2023-07-07"/>
+</epaperRequest>

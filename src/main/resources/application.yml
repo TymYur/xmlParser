@@ -1,0 +1,49 @@
+xmlparser:
+  db:
+    schemaName: xmlparser
+  maxFileSize: 1000
+
+info:
+  app:
+    name: "XML parser"
+    version: 0.0.1-SNAPSHOT
+    description: "Application to parse XML"
+
+server:
+  port: 8000
+  http2:
+    enabled: true
+
+spring:
+  datasource:
+    url: jdbc:postgresql://xmlparser:5432/postgres?currentSchema=${xmlparser.db.schemaName}
+    username: postgres
+    password: password123
+    datasource:
+      driver-class-name: org.postgresqlDriver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ${xmlparser.db.schemaName}
+
+  liquibase:
+    change-log: classpath:db/changelog/changelog.yml
+    default-schema: ${xmlparser.db.schemaName}
+    liquibase-schema: ${xmlparser.db.schemaName}
+    contexts: prod
+
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+      enabled: true
+      location: ${java.io.tmpdir}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

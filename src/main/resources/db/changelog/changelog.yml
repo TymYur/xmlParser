@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: uploads-table
+      author: Yurii_Tymchii
+      context: prod,test
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: upload_pkey
+                  name: upload_id
+                  startWith: 1
+                  type: BIGINT
+              - column:
+                  name: newspaper_name
+                  type: VARCHAR(255)
+              - column:
+                  name: width
+                  type: BIGINT
+              - column:
+                  name: height
+                  type: BIGINT
+              - column:
+                  name: dpi
+                  type: BIGINT
+              - column:
+                  name: uploaded_at
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: file_name
+                  type: VARCHAR(255)
+            tableName: uploads
